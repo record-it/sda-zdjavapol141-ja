@@ -9,6 +9,8 @@ public class Demo {
         Power doublePower = power.mulByScalar(2);
         System.out.println(doublePower);
         System.out.println(power.addPower(doublePower));
-
+        Power inkW = Power.ofKW(2);
+        System.out.println(power.addPower(inkW));
+        System.out.println(inkW.addPower(power));
     }
 }
