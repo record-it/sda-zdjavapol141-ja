@@ -1,7 +1,5 @@
 package pl.sda.pol141.day1.hermetization;
 
-
-
 class MyString{
     public int length(){
         return 5;
