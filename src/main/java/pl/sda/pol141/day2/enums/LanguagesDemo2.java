@@ -11,7 +11,13 @@ public class LanguagesDemo2 {
             console.print(language.name());
         }
         String languageAsString = console.read();
-        var language = Languages.valueOf(languageAsString.toUpperCase());
+        Languages language;
+        try {
+            language = Languages.valueOf(languageAsString.toUpperCase());
+        } catch (IllegalArgumentException e){
+            console.print("Wybrałeś nieobsługiwany język. Uruchom program ponownie");
+            return;
+        }
         console.print(language.ordinal()+"");
         Translator translator = language.getTranslator();
         console.print(translator.sayHello());
