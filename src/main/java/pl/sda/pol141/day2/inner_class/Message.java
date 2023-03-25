@@ -53,9 +53,14 @@ public class Message {
         }
 
         //Zadeklaruj i zaimplementuj metodę subject
+        public Builder subject(String subject){
+            this.subject = subject;
+            return this;
+        }
 
         public Message build(){
-            return new Message(content, createdAt, subject);
+            var m = new Message(content, createdAt, subject);
+            return m;
         }
 
     }

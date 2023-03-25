@@ -7,6 +7,7 @@ public class BuilderDemo {
         Message.Builder builder = new Message.Builder();
         final Message message = builder
                 .content("Hello")
+                .subject("Welcome")
                 .createAt(LocalDateTime.now())
                 .build();
         System.out.println(message);
