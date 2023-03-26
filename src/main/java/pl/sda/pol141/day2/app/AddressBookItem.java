@@ -48,9 +48,10 @@ public class AddressBookItem {
         if (!(o instanceof AddressBookItem that)) return false;
         return email.equals(that.email) && phone.equals(that.phone) && birth.equals(that.birth);
     }
-
+    // hashcode generowany musi być na podstawie tych samych pól, które są uwzględniane w metodzie equals
     @Override
     public int hashCode() {
+        //System.out.println("Address book item hashcode calling!");
         return Objects.hash(email, phone, birth);
     }
 }

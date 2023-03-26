@@ -30,10 +30,12 @@ public class SetDemo {
             );
         }
         System.out.println("Szukamy ....");
+        var start = System.nanoTime();
         System.out.println(itemsSet.contains(AddressBookItem.of(
                 "78",
                 "45",
                 LocalDate.of(2000, 10, 10
                 ))));
+        System.out.println(System.nanoTime() - start);
     }
 }
