@@ -1,6 +1,7 @@
 package pl.sda.pol141.day2.app;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class AddressBookItem {
     private String email;
@@ -39,5 +40,17 @@ public class AddressBookItem {
                 ", phone='" + phone + '\'' +
                 ", birth=" + birth +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AddressBookItem that)) return false;
+        return email.equals(that.email) && phone.equals(that.phone) && birth.equals(that.birth);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, phone, birth);
     }
 }

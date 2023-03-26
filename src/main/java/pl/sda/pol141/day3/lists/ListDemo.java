@@ -9,9 +9,15 @@ import java.util.List;
 public class ListDemo {
     public static void main(String[] args) {
         List<AddressBookItem> items = new ArrayList<>(100);
-        items.add(0, AddressBookItem.of("1","1", LocalDate.now()));
+        items.add(0, AddressBookItem.of("1","1", LocalDate.of(2000, 10, 10)));
         items.add(0, AddressBookItem.of("2","2", LocalDate.now()));
         items.add(0, AddressBookItem.of("3","3", LocalDate.now()));
+        var item1 = AddressBookItem.of("1", "1", LocalDate.of(2000, 10, 10));
+        final int index = items.indexOf(item1);
+        System.out.println("Index szukanego adresu: " + index);
+
+        System.out.println("Czy istniej element" + items.contains(item1));
+
         items.set(2, AddressBookItem.of("4","4",LocalDate.now()));
         for(var item: items){
             System.out.println(item);
