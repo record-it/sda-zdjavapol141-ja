@@ -6,12 +6,18 @@ import java.util.Iterator;
 public class MyCollection<E> implements Collection<E> {
     private static final String DELIMITER_REGEXP = "\\|";
     private static final String DELIMITER = "|";
-    private String content;
+    private String content = "";
     //"1|2|5|7";
     //"abc|cde|asd"
     @Override
     public int size() {
-        return content.split(DELIMITER_REGEXP).length;
+        if (content.contains(DELIMITER)) {
+            return content.split(DELIMITER_REGEXP).length;
+        }
+        if (content.isEmpty()){
+            return 0;
+        }
+        return 1;
     }
 
     @Override
@@ -47,7 +53,11 @@ public class MyCollection<E> implements Collection<E> {
 
     @Override
     public boolean add(E e) {
-        content = content + DELIMITER + e.toString();
+        if (content.isEmpty()) {
+            content = e.toString();
+        } else {
+            content += content + DELIMITER + e.toString();
+        }
         return true;
     }
 

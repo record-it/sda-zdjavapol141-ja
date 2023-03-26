@@ -2,14 +2,20 @@ package pl.sda.pol141.day2.app;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookApp {
-    private static AddressBookItem[] items = new AddressBookItem[100];
+    private static List<AddressBookItem> items = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
     private static int index = 0;
     public static void main(String[] args) {
         inputAddressBookItem();
+        printAddressBook();
+    }
+
+    private static void printAddressBook() {
         for (var item: items) {
             if (item != null){
                 System.out.println(item);
@@ -28,7 +34,7 @@ public class AddressBookApp {
             String birthAsString = scanner.nextLine();
             try {
                 final AddressBookItem item = AddressBookItem.of(email, phone, LocalDate.parse(birthAsString));
-                items[index++] = item;
+                items.add(item);
                 isDateValid = true;
             } catch (DateTimeParseException e) {
                 System.out.println("Data urodzin niezgodna z formatem! Spróbuj jeszcze raz");
