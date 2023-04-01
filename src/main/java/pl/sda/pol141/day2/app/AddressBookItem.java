@@ -8,7 +8,7 @@ public class AddressBookItem {
     private String phone;
     private LocalDate birth;
 
-    private AddressBookItem(String email, String phone, LocalDate birth) {
+    public AddressBookItem(String email, String phone, LocalDate birth) {
         this.email = email;
         this.phone = phone;
         this.birth = birth;
