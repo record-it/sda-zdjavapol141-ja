@@ -8,10 +8,10 @@ public class SumatorThread extends Thread {
         for (int i = 0; i < 10_000 && !this.isInterrupted(); i++) {
             counter++;
             try {
-                Thread.sleep(1);
+                Thread.sleep(1);//wykonywanie operacji
                 sum += i;
             } catch (InterruptedException e) {
-                this.interrupt();
+                this.interrupt();//podtrzymanie sygnałi interrupt, jeśli dotarł on do sleep
             }
         }
         System.out.println(
