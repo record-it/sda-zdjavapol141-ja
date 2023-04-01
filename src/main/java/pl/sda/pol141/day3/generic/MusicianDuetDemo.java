@@ -22,8 +22,5 @@ public class MusicianDuetDemo {
             new GuitarPlayer()
         );
         unknownDuet.play();
-
-
-
     }
 }
