@@ -10,7 +10,7 @@ public class StreamDemo {
         stream.write("Hello World!".getBytes());
         byte[] buffer = new byte[1024];
         stream = new ByteArrayOutputStream();
-        stream.write("Hello Wordl!".getBytes());
+        stream.write("Hello World!".getBytes());
 
         InputStream inputStream = new FileInputStream("c:\\data\\console.txt");
         final int read = inputStream.read();
