@@ -8,11 +8,17 @@ public class StreamOtherMethodsDemo {
                 .limit(100)
                 .distinct()             // bez powtórzeń
                 .forEach(System.out::println);
-        System.out.println("*******************Przykład dla sort i peek******************");
+        System.out.println("******************* Przykład dla sort i peek ******************");
         StreamCreationDemo.namesStream()
                 .limit(10)
-                .peek(name -> System.out.println("Peej " + name))  // wykonanie jakiegoś działania na elemencie
+                .peek(name -> System.out.println("Peek " + name))  // wykonanie jakiegoś działania na elemencie
                 .sorted()                                          // sortuje
+                .forEach(System.out::println);
+        System.out.println("******************* Przykład dla paralle ******************");
+        StreamCreationDemo.namesStream()
+                .limit(10000)
+                .parallel()
+                .map(name -> "<" + name + "/>")
                 .forEach(System.out::println);
     }
 }
