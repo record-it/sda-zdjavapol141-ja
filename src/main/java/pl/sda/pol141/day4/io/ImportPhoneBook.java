@@ -28,7 +28,7 @@ public class ImportPhoneBook {
                     continue;
                 }
                 try {
-                    AddressBookItem item = AddressBookItem.of(tokens[0], tokens[1], LocalDate.parse(tokens[3]));
+                    AddressBookItem item = AddressBookItem.of(tokens[0], tokens[1], LocalDate.parse(tokens[2]));
                     items.add(item);
                 } catch (IllegalArgumentException e){
                     System.out.println("Ten wiersz nie zawiera poprawnej daty!");
@@ -50,5 +50,11 @@ public class ImportPhoneBook {
         for(var item: found){
             System.out.println(item);
         }
+        //poszukaj osoby o podanym numerze telefonu
+        System.out.println("Podaj nr telefonu");
+        String phone = scanner.nextLine();
+        items.stream()
+                .filter(item -> item.getPhone().equals(phone))
+                .forEach(item -> System.out.println(item));
     }
 }
